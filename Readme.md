@@ -77,8 +77,7 @@ This project involved a systematic architectural search to solve the specific ch
 ---
 
 ├── Paper reproduction/         # Baselines and reproduced model weights
-│   ├── best_cmseg_model.pth    # Saved CMSegNet model weights 
-│   └── busternet.pth           # BusterNet baseline model weights
+│   └── busternet.ipynb         # BusterNet baseline model weights
 ├── unet.ipynb                  # Main research notebook (Full Experimental Pipeline)
 ├── final_test.py               # Baseline CNN test script
 ├── .gitignore                  # Git ignore rules
