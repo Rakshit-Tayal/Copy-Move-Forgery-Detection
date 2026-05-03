@@ -1,0 +1,16 @@
+# Ignore user-requested files
+Recod/
+Recod.rar
+
+# Ignore virtual environments
+venv/
+
+# Ignore large datasets and compressed archives
+data/
+*.zip
+
+# Ignore heavy PyTorch model weights globally
+*.pth
+
+# EXCEPT the reproduced cmsegnet model
+!Paper reproduction/best_cmseg_model.pth
