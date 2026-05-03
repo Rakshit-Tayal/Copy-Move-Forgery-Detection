@@ -60,15 +60,19 @@ The model was trained and evaluated on a specialized dataset of 5,000 microscopi
 
 ## 🏆 Results & Performance
 
-By leveraging dense self-correlation to find duplicates and attention mechanisms to filter uniform backgrounds, this custom architecture significantly outperformed both traditional methods and standard natural-image CMFD models.
+This project involved a systematic architectural search to solve the specific challenges of microscopic forgery detection. Standard segmentation models and natural-image SOTA architectures were evaluated and iteratively improved upon to handle extreme class imbalance and domain shift.
 
-| Model / Approach | Domain Focus | Hard Dice Score | Image-Level Recall |
+| Model / Architecture | Key Observation / Limitation | Hard Dice Score | Image-Level Recall |
 | :--- | :--- | :---: | :---: |
-| BusterNet (Baseline) | Natural Images | `< 0.10` | - |
-| EfficientNet-Unet | Natural / Semantic | `Failed` | - |
-| **Correlation Attention U-Net (Ours)** | **Microscopy** | **`0.41`** | **`~96.8%`** |
+| **BusterNet (SOTA Baseline)** | Fails on microscopy; hallucinates matches in uniform backgrounds. | `< 0.10` | - |
+| **Standard U-Net** | Overwhelmed by the extreme <1% foreground class imbalance. | `Poor` | `Poor` |
+| **U-Net + Classification Head** | Failed to learn global image authenticity (performed at ~50% random chance). | `N/A` | `~50.0%` |
+| **Attention U-Net** | High recall, but yielded severe false positives on uniform biological backgrounds. | `0.29` | `~96.8%` |
+| **EfficientNet + Attention U-Net** | Domain shift: aggressive compression destroyed crucial high-frequency forensic noise. | `Failed` | `Failed` |
+| **Correlation Attention U-Net (Ours)**| **Dense feature matching + attention filtering successfully localized splices.** | **`0.41`** | **`~96.8%`** |
 
-*Note: Achieving a >0.4 Hard Dice on sub-1% microscopy anomalies represents a massive leap in domain-specific forgery localization.*
+*Note: Achieving a >0.4 Hard Dice on sub-1% microscopy anomalies represents a massive leap in domain-specific forgery localization, proving that dense self-correlation combined with high-frequency convolutional encoding is necessary for this domain.*
+
 
 ---
 
