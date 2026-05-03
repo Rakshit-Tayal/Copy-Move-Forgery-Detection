@@ -76,21 +76,10 @@ This project involved a systematic architectural search to solve the specific ch
 
 ---
 
-## 📂 Project Structure
-```text
-├── data/                       # Dataset directory (Excluded from Git)
-│   ├── train_images/           # Authentic and Forged RGB images
-│   └── train_masks/            # Ground truth NumPy/PNG masks
 ├── Paper reproduction/         # Baselines and reproduced model weights
-│   ├── best_cmseg_model.pth    # Saved cmsegnet model weights 
+│   ├── best_cmseg_model.pth    # Saved CMSegNet model weights 
 │   └── busternet.pth           # BusterNet baseline model weights
-├── notebooks/                  # Jupyter notebooks for EDA and testing
-│   ├── unet.ipynb              # Baseline U-Net implementation
-│   └── attention_correlation.ipynb # Final Attention U-Net + Correlation code
-├── src/                        # Core source code
-│   ├── dataset.py              # Custom PyTorch Dataset and Dataloaders
-│   ├── model.py                # Correlation-Aware Attention U-Net architecture
-│   ├── loss.py                 # Joint BCE & Dice Loss functions
-│   └── metrics.py              # IOU, Soft Dice, and Hard Dice evaluation
-├── .gitignore                  # Git ignore rules (protects against large files)
+├── unet.ipynb                  # Main research notebook (Full Experimental Pipeline)
+├── final_test.py               # Baseline CNN test script
+├── .gitignore                  # Git ignore rules
 └── README.md                   # Project documentation
